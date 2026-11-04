@@ -19,9 +19,11 @@ const t = messages(locale);
   <div class="feed-address"><div id={`${id}-prompt`} class="agent-message-text" data-agent-text role="textbox" aria-readonly="true" aria-multiline="true" aria-labelledby={`${id}-title`} tabindex="0">{prompt}</div></div>
   <div class="agent-message-footer">
     {compact && <button type="button" class="button button--secondary agent-prompt-toggle" data-agent-toggle data-expand={t.agentViewPrompt} data-collapse={t.agentHidePrompt} aria-expanded="true" aria-controls={`${id}-prompt`} hidden>{t.agentHidePrompt}</button>}
-    <button type="button" class="button" data-agent-copy data-success={t.agentCopied} data-failure={t.agentCopyFallback}>{t.agentCopyInstruction}</button>
+    <div class="agent-copy-row">
+      <p class="feed-copy-status" data-agent-status role="status" aria-live="polite"></p>
+      <button type="button" class="button" data-agent-copy data-success={t.agentCopied} data-failure={t.agentCopyFallback}>{t.agentCopyInstruction}</button>
+    </div>
   </div>
-  <p class="feed-copy-status" data-agent-status role="status" aria-live="polite"></p>
 </section>
 <script>
   document.querySelectorAll<HTMLElement>('[data-agent-handoff]').forEach((section) => {
