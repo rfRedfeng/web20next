@@ -1,0 +1,6 @@
+{
+  "$schema": "../schemas/site.schema.json",
+  "name": "昼星AI说",
+  "url": "https://zhouxingai.com/",
+  "description": "用设计和产品的视角探索 AI，整理值得关注的 AI 动态、工具与开源项目。"
+}
