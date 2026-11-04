@@ -6,6 +6,16 @@ We use GitHub pull requests to add, update, and remove personal websites. Each e
 
 Repository: https://github.com/web20next/web20next
 
+## Eligible websites
+
+**This directory accepts personal websites only, not business websites.** Eligibility depends on the website’s main purpose, not whether it is run by one person or is free to use.
+
+- A personal website centers on a real person: their introduction, writing, experiences, views, and work. Blogs and personal portfolios are welcome. Featuring commercial work or mentioning services does not disqualify an otherwise personal website.
+- A business website primarily promotes or delivers a product, company, course, service, or online store. These websites are not eligible, even if independently run or free to use. Product and community platforms are not personal websites merely because their creator is named.
+- A personal website may link to its creator’s projects through the optional `works` field. We do not currently accept separate project or partner listings.
+
+For additions and updates, explain why the site qualifies and link to a public page that introduces the person and their content. Maintainers review eligibility; passing automated checks does not establish that a site qualifies. Requests to remove an ineligible entry are still welcome.
+
 ## Share your website
 
 1. Read the [manifesto](docs/manifesto.en.md). Submit your own website, or obtain the owner’s explicit permission for this public listing. An already-public website does not itself establish consent to be listed.

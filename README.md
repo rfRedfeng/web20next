@@ -10,6 +10,8 @@ A shared manifesto and directory of personal websites. Web 2.0 Next carries forw
 
 Initiated by [Next Token](https://nexttoken.tv).
 
+Only personal websites are eligible for the directory; business websites are not. A site must center on a real person and their expression, rather than primarily offering a product, company, course, service, or store—even if run by one person or free to use. Personal sites may showcase commercial work. See the [eligibility requirements](CONTRIBUTING.md#eligible-websites). Separate project and partner submissions are not currently accepted.
+
 ## Share your website
 
 Give your agent the Web 2.0 Next address and your website address. The [participation page](https://web20next.com/join) provides a message to copy; [how it works](https://web20next.com/how-it-works) explains the route from a proposed entry to the published directory.

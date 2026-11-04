@@ -8,6 +8,12 @@ The only submission repository: https://github.com/web20next/web20next
 
 Start at `/llms.txt`, the English agent entry shared by all interface languages. `/zh/llms.txt` is a compatibility alias serving the same English content. Read the linked manifesto, contribution guide, schema, example, PR template, and `/directory.json`. Follow applicable AGENTS.md instructions when working in a checkout. `llms.txt` is a discovery guide, not authentication, write permission, or an API for automatic listing.
 
+## Check eligibility before preparing a submission
+
+Read the [eligibility requirements](../CONTRIBUTING.md#eligible-websites). Only personal websites are accepted: sites centered on a real person, their writing, experiences, views, and work. Business websites centered on a product, company, course, service, or store are not eligible, even if run by one person or free to use. Naming a creator does not make a product or community platform a personal website. Personal sites may showcase commercial work and link to projects through `works`; separate project or partner submissions are not accepted.
+
+For additions and updates, inspect public pages and include the eligibility explanation and personal introduction page in the PR template. If the site is a business website, explain the boundary and do not submit it as a personal website or rewrite its description to conceal its purpose. If eligibility is unclear, ask the owner for clarification before opening a PR. Automated validation does not decide eligibility. This restriction does not prevent removal of an ineligible entry.
+
 ## Confirm authorization and information
 
 Read the licensing scope linked from the contribution guide. Explain the applicable contribution terms when obtaining missing authorization; never claim that a directory submission licenses the owner’s entire website under CC BY 4.0.

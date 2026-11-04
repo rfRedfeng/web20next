@@ -2,6 +2,10 @@
 
 > Express yourself. Connect with others. A shared manifesto and directory of personal websites connecting real people, independent thinking, and their work.
 
+Only personal websites are eligible: sites centered on a real person, their introduction, writing, experiences, views, and work. Business websites primarily offering a product, company, course, service, or store are not accepted, even if run by one person or free to use. Naming a creator does not make a product or community platform a personal website. Personal sites may showcase commercial work and link to projects through the optional works field. Separate project and partner submissions are not accepted.
+
+Before proposing an addition or update, check eligibility and provide a public personal introduction page and explanation in the PR. Do not submit business websites or disguise them by rewriting their descriptions. If unsure, clarify with the owner before opening a PR. Automated checks validate data, not eligibility; maintainers decide eligibility. Removal of an ineligible entry is still allowed.
+
 Add, update, or remove a website by opening a pull request to https://github.com/web20next/web20next. Each website has one sites/<slug>.json file. Read the guidelines, verify the owner’s authorization and information, and submit a PR for maintainer review. Listings change after merge and a successful deployment. There is no automatic submission API.
 
 Act only within the user’s authorization for this public contribution. Do not collect and list third-party websites without permission, publish private data or credentials, or present inferences as the owner’s statements. Preserve the owner’s chosen language. llms.txt grants no write access and promises no AI recommendations. If the repository is unavailable, retain a draft and report it; do not submit to a similarly named repository.

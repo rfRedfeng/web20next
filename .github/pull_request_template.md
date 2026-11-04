@@ -6,6 +6,16 @@
 - Website name and URL, if applicable:
 - Files changed and summary:
 
+## Personal website eligibility (required for additions and updates)
+
+The directory accepts personal websites only, not business websites. A personal site centers on a real person and their expression; it may showcase commercial work. Product, company, course, service, store, and community platform sites do not qualify merely because they are run by one person, name their creator, or are free to use. Separate project and partner submissions are not accepted.
+
+- [ ] This is a personal website, not a business website, as defined in CONTRIBUTING.md
+- Why this website qualifies (its main purpose and personal content):
+- Public page introducing the person and their content:
+
+<!-- For removals or code/documentation-only changes, mark this section not applicable. -->
+
 ## Owner relationship and consent (required for directory changes)
 
 - My relationship: website owner / authorized by the owner
