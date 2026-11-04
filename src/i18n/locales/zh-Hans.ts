@@ -27,7 +27,7 @@ export default {
   footerLearn: "了解开放网络",
   footerBuild: "创建个人网站",
   initiatorLabel: "发起方：",
-  initiatorName: "Next Token 词元之外",
+  initiatorName: "Next Token｜词元之外",
   footerProject: "项目",
   footerAgents: "面向 Agent",
   xfnIntro: "什么是 XFN？",

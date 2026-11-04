@@ -9,7 +9,7 @@ Web 2.0 Next 是一个以宣言与个人网站名录为核心的共建项目：�
 ## 项目信息
 
 - 项目名称：Web 2.0 Next
-- 发起方：[Next Token 词元之外](https://nexttoken.tv)
+- 发起方：[Next Token｜词元之外](https://nexttoken.tv)
 - 中文定位：Web 2.0 的下一章
 - GitHub 组织与仓库标识：`web20next/web20next`
 - 正式站点地址：`https://web20next.com`

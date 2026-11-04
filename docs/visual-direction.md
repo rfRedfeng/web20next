@@ -50,7 +50,7 @@
 
 页脚当前由品牌区域和四个同级导航小节组成：
 
-- 品牌区域：标志、标语、GitHub、RSS 订阅，以及 Next Token 词元之外的发起方署名和链接；署名下方保留蓝色“我 ♥ 个人网站 / I ♥ personal websites”徽章。
+- 品牌区域：标志、标语、GitHub、RSS 订阅，以及 Next Token｜词元之外的发起方署名和链接；署名下方保留蓝色“我 ♥ 个人网站 / I ♥ personal websites”徽章。
 - 创建个人网站 / Create a personal website：GitHub、Cloudflare 建站教程和域名注册指南，三个入口均使用问句。大屏下该组链接保持单行，手机允许自然换行。
 - 了解开放网络：Web 2.0、RSS、XFN 介绍，入口使用“什么是……？ / What is …?”。
 - 面向 Agent / For agents：什么是 llms.txt？ / What is llms.txt?，链接到介绍页。
