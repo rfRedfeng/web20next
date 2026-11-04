@@ -11,7 +11,7 @@ const home = localizedPath(locale);
   <nav class="nav-links" aria-label={t.navLabel}>
     <a href={localizedPath(locale, 'manifesto')}>{t.manifesto}</a>
     <a href={localizedPath(locale, 'websites')}>{t.directory}</a>
-    <a class="nav-join" href={`${home}#join`}>{t.participate}</a>
+    <a class="button button--secondary" href={`${home}#join`}>{t.participate}</a>
   </nav>
   <LanguagePicker locale={locale} page={page} />
 </header>

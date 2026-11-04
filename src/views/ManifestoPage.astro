@@ -31,7 +31,7 @@ const address = publicUrl(localizedPath(defaultLocale, 'manifesto'));
       <div class="actions"><a class="button" href={poster} download={`web20next-manifesto-${locale}.png`}>{t.downloadCard}</a><a href={poster}>{t.openCard}</a></div>
       <label class="feed-label" for="manifesto-address">{t.manifestoLinkLabel}</label>
       <input class="feed-address" id="manifesto-address" type="url" readonly value={address} />
-      <button class="copy-manifesto" id="copy-manifesto" type="button" data-success={t.linkCopied} data-failure={t.linkCopyFallback}>{t.copyManifestoLink}</button>
+      <button class="button button--secondary copy-manifesto" id="copy-manifesto" type="button" data-success={t.linkCopied} data-failure={t.linkCopyFallback}>{t.copyManifestoLink}</button>
       <p id="manifesto-copy-status" role="status" aria-live="polite"></p>
     </div>
     <a class="poster-preview" href={poster} aria-label={t.openCard}><img src={poster} alt={t.posterAlt} width="1080" height="1350" loading="lazy" /></a>

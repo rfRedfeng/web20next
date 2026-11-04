@@ -56,12 +56,23 @@ const images = [
       </section>
       <section id="controls" class="ds-section" aria-labelledby="ds-controls">
         <h2 id="ds-controls">{t.dsControls}</h2><p class="ds-section-intro">{t.dsControlsText}</p>
-        <div class="ds-control-grid">
-          {[['', t.dsDefault], ['is-hover', t.dsHover], ['is-focus', t.dsFocus]].map(([state, label]) => <div><span class="ds-example-label">{label}</span><button class={`button ${state}`} type="button" data-demo-button>{t.dsDemoAction}</button></div>)}
-          <div><span class="ds-example-label">{t.dsDisabled}</span><button class="button" type="button" disabled>{t.dsDemoAction}</button></div>
-        </div>
+        {[['', t.dsPrimary], ['button--secondary', t.dsSecondary]].map(([variant, label]) => <>
+          <h3>{label}</h3>
+          <div class="ds-control-grid">
+            {[['', t.dsDefault], ['is-hover', t.dsHover], ['is-focus', t.dsFocus], ['is-active', t.dsPressed]].map(([state, stateLabel]) => <div><span class="ds-example-label">{stateLabel}</span><button class={`button ${variant} ${state}`} type="button" data-demo-button>{t.dsDemoAction}</button></div>)}
+            <div><span class="ds-example-label">{t.dsDisabled}</span><button class={`button ${variant}`} type="button" disabled>{t.dsDemoAction}</button></div>
+          </div>
+        </>)}
+        <div class="ds-specimen"><a class="button" href={localizedPath(locale, 'manifesto')}>{t.readManifesto}</a><a class="button button--secondary" href={`${localizedPath(locale)}#join`}>{t.participate}</a></div>
         <p class="ds-feedback" id="ds-feedback" role="status" aria-live="polite" data-success={t.dsDemoDone}>{t.dsDemoHint}</p>
         <div class="ds-specimen"><a href={localizedPath(locale, 'manifesto')}>{t.readManifesto}</a><a class="rss-link" href={localizedPath(locale, 'subscribe')}><RssIcon />{t.rssLabel}</a></div>
+        <h3>{t.dsLinks}</h3>
+        <div class="ds-link-examples">
+          <div><a href={localizedPath(locale, 'rss')}>{t.dsLinkBody}</a><p>{t.dsLinkBodyText}</p></div>
+          <div><a class="link-standalone" href={localizedPath(locale, 'websites')}>{t.dsLinkStandalone}</a><p>{t.dsLinkStandaloneText}</p></div>
+          <div><a class="link-navigation" href={localizedPath(locale, 'manifesto')}>{t.dsLinkNavigation}</a><p>{t.dsLinkNavigationText}</p></div>
+        </div>
+        <p class="ds-section-intro">{t.dsLinkSpecialText}</p>
         <div class="ds-input-grid"><div><label class="feed-label" for="ds-website">{t.dsInputLabel}</label><input class="feed-address" type="url" id="ds-website" placeholder={t.dsInputPlaceholder} aria-describedby="ds-input-hint" /><p id="ds-input-hint" class="ds-hint">{t.dsInputHint}</p></div><div><label class="feed-label" for="ds-unavailable">{t.dsDisabled}</label><input class="feed-address" id="ds-unavailable" disabled value="https://your-website.com" /></div></div>
         <p class="ds-example-label">{t.languageLabel}</p>
         <div class="ds-language-example"><LanguagePicker locale={locale} page="design-system" /></div>
