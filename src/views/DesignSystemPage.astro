@@ -1,5 +1,7 @@
 ---
 import { socialImageUrl } from '../data/social-images';
+import AgentHandoff from '../components/AgentHandoff.astro';
+import { publicUrl } from '../lib/site-url';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import RssIcon from '../components/RssIcon.astro';
 import LanguagePicker from '../components/LanguagePicker.astro';
@@ -66,6 +68,9 @@ const images = [
       </section>
       <section id="patterns" class="ds-section" aria-labelledby="ds-patterns">
         <h2 id="ds-patterns">{t.dsPatterns}</h2><p class="ds-section-intro">{t.dsPatternsText}</p>
+        <h3>{t.dsAgentTitle}</h3>
+        <p>{t.dsAgentText}</p>
+        <AgentHandoff locale={locale} id="ds-agent-example" prompt={t.githubGuidePrompt.replace('{article}', publicUrl('/github-pages'))} description={t.guideAgentDescription} compact />
         <p class="ds-example-label">{t.dsDemoLabel}</p>
         <article class="directory-entry"><h3><a href={localizedPath(locale, 'manifesto')}>{t.dsDemoSite}</a></h3><p>{t.dsDemoDescription}</p><ul class="site-tags" aria-label={t.topicsLabel}><li>{t.dsTagWriting}</li><li>{t.dsTagMaking}</li></ul><a class="rss-link" href={localizedPath(locale, 'subscribe')}><RssIcon />{t.rssLabel}</a></article>
         <div class="empty-directory ds-empty"><div class="little-home" aria-hidden="true">⌂</div><div><h3>{t.directoryEmptyTitle}</h3><p>{t.directoryEmpty1}</p></div><span class="empty-label">{t.directoryEmptyStatus}</span></div>

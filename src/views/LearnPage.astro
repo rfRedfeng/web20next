@@ -1,7 +1,9 @@
 ---
+import AgentHandoff from '../components/AgentHandoff.astro';
+import { publicUrl } from '../lib/site-url';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { messages, localizedPath, type Locale, type Page } from '../i18n';
-interface Props { locale: Locale; topic: 'xfn' | 'rss' | 'web-2-0' | 'llms' }
+interface Props { locale: Locale; topic: 'xfn' | 'rss' | 'web-2-0' | 'llms' | 'github-pages' | 'cloudflare-pages' | 'register-domain' }
 const { locale, topic } = Astro.props;
 const t = messages(locale);
 const documents = import.meta.glob<{
@@ -15,13 +17,18 @@ const document = await load();
 const { title, description } = document.frontmatter;
 const content = await document.compiledContent();
 const related: { page: Page; label: string }[] = [
+  { page: 'github-pages', label: t.githubPagesIntro },
+  { page: 'cloudflare-pages', label: t.cloudflarePagesIntro },
+  { page: 'register-domain', label: t.registerDomainIntro },
   { page: 'web-2-0', label: t.web2Intro },
   { page: 'rss', label: t.rssIntroLink },
   { page: 'xfn', label: t.xfnIntro },
   { page: 'llms', label: t.llmsIntro },
 ];
-const nextPage = topic === 'rss' ? 'subscribe' : topic === 'xfn' ? 'websites' : topic === 'llms' ? 'how-it-works' : 'manifesto';
-const nextLabel = topic === 'rss' ? t.rssLabel : topic === 'xfn' ? t.explore : topic === 'llms' ? t.howItWorks : t.readManifesto;
+const isWebsiteGuide = topic === 'github-pages' || topic === 'cloudflare-pages' || topic === 'register-domain';
+const guidePrompt = ({ 'github-pages': t.githubGuidePrompt, 'cloudflare-pages': t.cloudflareGuidePrompt, 'register-domain': t.domainGuidePrompt } as Partial<Record<typeof topic, string>>)[topic]?.replace('{article}', publicUrl(localizedPath('en', topic)));
+const nextPage = isWebsiteGuide ? 'join' : topic === 'rss' ? 'subscribe' : topic === 'xfn' ? 'websites' : topic === 'llms' ? 'how-it-works' : 'manifesto';
+const nextLabel = isWebsiteGuide ? t.shareSite : topic === 'rss' ? t.rssLabel : topic === 'xfn' ? t.explore : topic === 'llms' ? t.howItWorks : t.readManifesto;
 ---
 <SiteLayout locale={locale} page={topic} title={`${title} · Web 2.0 Next`} description={description}>
   <article class="contribution-page learn-page section">
@@ -30,7 +37,9 @@ const nextLabel = topic === 'rss' ? t.rssLabel : topic === 'xfn' ? t.explore : t
       <h1>{title}</h1>
       <p class="contribution-lead">{description}</p>
     </header>
+    {guidePrompt && <AgentHandoff locale={locale} id="guide-agent-start" prompt={guidePrompt} description={t.guideAgentDescription} compact />}
     <div class="learn-body" set:html={content} />
+    {guidePrompt && <AgentHandoff locale={locale} id="guide-agent-end" prompt={guidePrompt} description={t.guideAgentDescription} compact />}
     <nav class="learn-related" aria-label={t.relatedReading}>
       <h2>{t.relatedReading}</h2>
       <a href={localizedPath(locale, nextPage)}>{nextLabel}</a>

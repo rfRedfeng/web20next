@@ -1,0 +1,61 @@
+---
+import { messages, type Locale } from '../i18n';
+interface Props {
+  locale: Locale;
+  id: string;
+  prompt: string;
+  title?: string;
+  description?: string;
+  compact?: boolean;
+}
+const { locale, id, prompt, title, description, compact = false } = Astro.props;
+const t = messages(locale);
+---
+<section id={id} class="agent-message" data-agent-handoff aria-labelledby={`${id}-title`}>
+  <div class="agent-message-header">
+    <h2 id={`${id}-title`}>{title ?? t.agentHeading}</h2>
+    {description && <p class="agent-message-description">{description}</p>}
+  </div>
+  <div class="feed-address"><div id={`${id}-prompt`} class="agent-message-text" data-agent-text role="textbox" aria-readonly="true" aria-multiline="true" aria-labelledby={`${id}-title`} tabindex="0">{prompt}</div></div>
+  <div class="agent-message-footer">
+    {compact && <button type="button" class="agent-prompt-toggle" data-agent-toggle data-expand={t.agentViewPrompt} data-collapse={t.agentHidePrompt} aria-expanded="true" aria-controls={`${id}-prompt`} hidden>{t.agentHidePrompt}</button>}
+    <button type="button" class="button" data-agent-copy data-success={t.agentCopied} data-failure={t.agentCopyFallback}>{t.agentCopyInstruction}</button>
+  </div>
+  <p class="feed-copy-status" data-agent-status role="status" aria-live="polite"></p>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-agent-handoff]').forEach((section) => {
+    const button = section.querySelector<HTMLButtonElement>('[data-agent-copy]');
+    const message = section.querySelector<HTMLElement>('[data-agent-text]');
+    const status = section.querySelector<HTMLElement>('[data-agent-status]');
+    const toggle = section.querySelector<HTMLButtonElement>('[data-agent-toggle]');
+    const setExpanded = (expanded: boolean) => {
+      message?.classList.toggle('is-preview', !expanded);
+      if (toggle) {
+        toggle.setAttribute('aria-expanded', String(expanded));
+        toggle.textContent = (expanded ? toggle.dataset.collapse : toggle.dataset.expand) ?? '';
+      }
+    };
+    if (toggle) {
+      toggle.hidden = false;
+      setExpanded(false);
+      toggle.addEventListener('click', () => setExpanded(toggle.getAttribute('aria-expanded') !== 'true'));
+    }
+    button?.addEventListener('click', async () => {
+      if (!message || !status) return;
+      try {
+        await navigator.clipboard.writeText(message.textContent ?? '');
+        status.textContent = button.dataset.success ?? '';
+      } catch {
+        setExpanded(true);
+        message.focus();
+        const range = document.createRange();
+        range.selectNodeContents(message);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
+        status.textContent = button.dataset.failure ?? '';
+      }
+    });
+  });
+</script>

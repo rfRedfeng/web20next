@@ -22,7 +22,7 @@ export const locales = {
 } as const;
 
 export type Locale = keyof typeof locales;
-export type Page = 'home' | 'join' | 'subscribe' | 'manifesto' | 'design-system' | 'websites' | 'how-it-works' | 'xfn' | 'rss' | 'web-2-0' | 'llms';
+export type Page = 'home' | 'join' | 'subscribe' | 'manifesto' | 'design-system' | 'websites' | 'how-it-works' | 'xfn' | 'rss' | 'web-2-0' | 'llms' | 'github-pages' | 'cloudflare-pages' | 'register-domain';
 export type Messages = Record<keyof typeof zh, string>;
 export const localeCodes = Object.keys(locales) as Locale[];
 

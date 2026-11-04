@@ -6,6 +6,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { inlineStylesheets: 'never' },
+  markdown: { syntaxHighlight: false },
   site: resolveSiteUrl(process.env.SITE_URL).href,
   vite: {
     plugins: [{

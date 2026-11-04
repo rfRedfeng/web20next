@@ -19,6 +19,14 @@ const t = messages(locale);
   </div>
   <nav class="footer-groups" aria-label={t.footerNav}>
     <div class="footer-group">
+      <h2>{t.footerBuild}</h2>
+      <ul>
+        <li><a href={localizedPath(locale, 'github-pages')}>{t.githubPagesIntro}</a></li>
+        <li><a href={localizedPath(locale, 'cloudflare-pages')}>{t.cloudflarePagesIntro}</a></li>
+        <li><a href={localizedPath(locale, 'register-domain')}>{t.registerDomainIntro}</a></li>
+      </ul>
+    </div>
+    <div class="footer-group">
       <h2>{t.footerLearn}</h2>
       <ul>
         <li><a href={localizedPath(locale, 'web-2-0')}>{t.web2Intro}</a></li>

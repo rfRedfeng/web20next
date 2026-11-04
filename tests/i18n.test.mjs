@@ -30,7 +30,7 @@ test('each locale has the same complete dictionary and unique routes', () => {
 });
 
 test('reading translations preserve section structure and reference links', async () => {
-  for (const topic of ['xfn', 'rss', 'web-2-0', 'llms']) {
+  for (const topic of ['xfn', 'rss', 'web-2-0', 'llms', 'github-pages', 'cloudflare-pages', 'register-domain']) {
     const structure = async (locale) => {
       const source = await readFile(new URL(`../src/content/learn/${topic}.${locale}.md`, import.meta.url), 'utf8');
       return {
