@@ -115,7 +115,7 @@ a,button {
   display:flex;
   align-items:center;
   gap:34px}
-.nav-links a:not(.button) { font-size:14px; }
+.nav-links a:not(.button) { display: inline-flex; align-items: center; min-height: var(--control-height); font-size: var(--text-small); }
 .hero {
   display:grid;
   grid-template-columns:minmax(0, .9fr) minmax(0, 1.1fr);
@@ -481,18 +481,7 @@ h2 {
   font-size:14px;
   color:#e1e9ff;
   margin:0}
-.join-action {
-  text-decoration: none;
-  flex-shrink:0;
-  cursor:pointer;
-  border:1px solid white;
-  border-radius:9px;
-  padding:11px 20px;
-  color:#1d43ba;
-  background:linear-gradient(white,#e5ecff);
-  box-shadow:0 3px 0 #1433a4;
-  font-size:14px;
-  font-weight:600}
+.join a:focus-visible { outline-color: var(--white); }
 /* Supporting navigation: identity and utilities, then reading, project, and agent sections. */
 .footer { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1.8fr); gap: var(--space-12); border-top: 1px solid var(--line); padding-top: var(--space-12); padding-bottom: var(--space-12); align-items: start; }
 .footer-brand { font-size: 22px; }
@@ -561,8 +550,6 @@ h2 {
   font-size:24px}
 .nav-links {
   gap:17px}
-.nav-links a:not(.button) {
-  font-size:12px}
 .hero {
   grid-template-columns:1fr;
   padding:32px 0 34px;
@@ -601,8 +588,8 @@ h2 {
 .art-caption {
   bottom:-6px}
 .principle-strip {
-  gap:12px;
-  font-size:11px;
+  gap:var(--space-4);
+  font-size:var(--text-small);
   flex-wrap:wrap;
   justify-content:center}
 .principle-strip span {
@@ -681,8 +668,6 @@ h2 {
   flex-wrap:wrap}
 .actions {
   gap:19px}
-.principle-strip span {
-  font-size:10px}
 }
 
     @media(max-width:900px) {
@@ -746,7 +731,6 @@ h2 {
 .language-menu a:focus-visible { outline-offset: -3px; }
 .language-menu a[aria-current="true"] { color: var(--blue); background: var(--sky); font-weight: 600; }
 .language-check { flex-shrink: 0; }
-.join-action { max-width: 100%; text-align: center; }
 .not-found > div { margin: 25px 0; }
 .rss-icon { width: 22px; height: 22px; flex-shrink: 0; }
 .github-icon { width: 22px; height: 22px; flex-shrink: 0; fill: var(--ink); }
@@ -773,7 +757,8 @@ html[lang="en"] .home-window strong { font-size: 18px; }
   .nav { flex-wrap: wrap; padding-top: 20px; padding-bottom: 16px; gap: 16px; }
   .nav .brand { order: 1; }
   .language-switch { order: 2; margin-left: auto; }
-  .nav-links { order: 3; width: 100%; margin: 0; gap: 20px; flex-wrap: wrap; }
+  .nav-links { order: 3; width: 100%; margin: 0; gap: var(--space-3); flex-wrap: wrap; }
+  .principle-strip { display: grid; justify-content: start; gap: var(--space-3); }
   html[lang="en"] .contribution-page h1 { font-size: 36px; }
 }
 @media (max-width: 900px) {
@@ -1043,12 +1028,14 @@ html.social-card-document body { line-height:normal; width:100vw; height:100vh}
 .how-questions h3 { margin: var(--space-6) 0 var(--space-2); font-size: 19px; }
 .how-next { margin-top: var(--space-12); padding: var(--space-8); background: var(--sky); border-radius: var(--radius-panel); }
 .how-next .actions { margin: 0; }
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .how-flow ol { grid-template-columns: minmax(0, 1fr); }
   .how-flow li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: var(--space-1) var(--space-3); padding: var(--space-3) var(--space-4); }
   .how-flow-number { grid-row: 1 / span 2; align-self: center; }
   .how-flow li > span:not(.how-flow-number) { grid-column: 2; }
   .how-flow-arrow { right: auto; left: calc(50% - 10px); top: auto; bottom: -23px; transform: rotate(90deg); }
+}
+@media (max-width: 600px) {
   .how-details h2 { font-size: 21px; }
   .how-next { padding: var(--space-6); }
 }
