@@ -2,7 +2,7 @@
   "$schema": "../schemas/site.schema.json",
   "name": "Tina和瓜瓜 · 瓜瓜空间",
   "url": "https://guaguaspace.cn/",
-  "description": "一个普通人，打工 15 年；2026 年开始用 AI 工具，把有趣的体验和感受做成小游戏。站上挂着自己做的免费网页游戏。",
+  "description": "一个普通人，打工 15 年；2026 年开始用 AI 工具，把有趣的体验和感受做成小游戏。",
   "author": "Tina和瓜瓜",
   "tags": ["AI", "小游戏", "个人网站"],
   "works": [
