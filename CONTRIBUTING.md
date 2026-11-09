@@ -39,7 +39,7 @@ Keep website JSON files directly in `sites/`, with no subdirectories. Use lowerc
 | --- | --- | --- |
 | `name` | Required; 1–80 characters | Public website name |
 | `url` | Required | Canonical HTTP(S) website address; prefer HTTPS |
-| `description` | Required; 1–200 characters | Owner-approved, one-sentence introduction in plain text |
+| `description` | Required; 1–50 characters | Owner-approved, one-sentence introduction in plain text, kept short so directory cards stay a similar length |
 | `author` | Optional; 1–80 characters | Public display name; a legal name is not required |
 | `tags` | Optional; at most 5 unique items | Each tag has 1–24 characters |
 | `rss` | Optional | Existing RSS or Atom feed URL |

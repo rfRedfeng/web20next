@@ -8,7 +8,7 @@
     "$schema": { "const": "../schemas/site.schema.json" },
     "name": { "type": "string", "$ref": "#/$defs/plainText", "minLength": 1, "maxLength": 80, "pattern": "\\S" },
     "url": { "$ref": "#/$defs/webUrl" },
-    "description": { "type": "string", "$ref": "#/$defs/plainText", "minLength": 1, "maxLength": 200, "pattern": "\\S" },
+    "description": { "description": "Owner-approved one-sentence introduction, 1–50 characters, so directory cards stay a similar length.", "type": "string", "$ref": "#/$defs/plainText", "minLength": 1, "maxLength": 50, "pattern": "\\S" },
     "author": { "type": "string", "$ref": "#/$defs/plainText", "minLength": 1, "maxLength": 80, "pattern": "\\S" },
     "tags": {
       "type": "array", "maxItems": 5, "uniqueItems": true,

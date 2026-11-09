@@ -19,6 +19,23 @@ export interface WebsiteFile { filename: string; data: unknown }
 const ajv = new Ajv2020({ allErrors: true });
 addFormats(ajv);
 const validate = ajv.compile<Website>(schema);
+const descriptionMaxLength = schema.properties.description.maxLength;
+
+/** Count Unicode code points so the limit matches JSON Schema maxLength. */
+function unicodeLength(value: string): number {
+  return [...value].length;
+}
+
+/** Reject an over-long description with the actual length and the schema maximum. */
+function assertDescriptionLength(filename: string, data: unknown): void {
+  if (typeof data !== 'object' || data === null || !('description' in data)) return;
+  const description = (data as { description: unknown }).description;
+  if (typeof description !== 'string') return;
+  const length = unicodeLength(description);
+  if (length > descriptionMaxLength) {
+    throw new Error(`${filename}: description is ${length} characters; the maximum is ${descriptionMaxLength}`);
+  }
+}
 
 function normalizeUrl(value: string): string {
   const url = new URL(value);
@@ -38,6 +55,7 @@ export function validateWebsiteFiles(files: WebsiteFile[]): Website[] {
       throw new Error(`${filename}: Filenames must be unique and use lowercase letters, digits, and hyphens, with a .json extension`);
     }
     names.add(filename);
+    assertDescriptionLength(filename, data);
     if (!validate(data)) throw new Error(`${filename}: ${ajv.errorsText(validate.errors)}`);
     try {
       const normalized = normalizeUrl(data.url);

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validateWebsiteFiles } from '../src/lib/directory.ts';
+import schema from '../schemas/site.schema.json' with { type: 'json' };
 
 const website = { name: '测试网站', url: 'https://author.github.io/', description: '用于校验的测试资料，不是真实收录。' };
 const entry = (data = website, filename = 'author.json') => ({ filename, data });
@@ -42,6 +43,22 @@ test('rejects text that cannot be represented in XML across all entry text field
       assert.throws(() => validateWebsiteFiles([entry({ ...website, ...change })]));
     }
   }
+});
+
+test('limits description to 50 Unicode characters', () => {
+  const maxLength = schema.properties.description.maxLength;
+  assert.equal(maxLength, 50);
+  const atLimit = '甲'.repeat(maxLength);
+  assert.deepEqual(validateWebsiteFiles([entry({ ...website, description: atLimit })]), [{ ...website, description: atLimit }]);
+  // An emoji is one character and two UTF-16 code units; the cap counts characters.
+  const emojiAtLimit = '🙂'.repeat(maxLength);
+  assert.equal(emojiAtLimit.length, maxLength * 2);
+  assert.equal(validateWebsiteFiles([entry({ ...website, description: emojiAtLimit })])[0].description, emojiAtLimit);
+  const tooLong = '甲'.repeat(maxLength + 1);
+  assert.throws(
+    () => validateWebsiteFiles([entry({ ...website, description: tooLong })]),
+    /author\.json: description is 51 characters; the maximum is 50/,
+  );
 });
 
 test('preserves multilingual text, emoji, accents and ordinary whitespace', () => {
