@@ -1,0 +1,13 @@
+{
+  "$schema": "../schemas/site.schema.json",
+  "name": "Maplen · 红枫的个人空间",
+  "url": "https://maplen.top/",
+  "description": "红枫的个人网站，写写生活，想想世界",
+  "author": "红枫 (Maple)",
+  "tags": [
+    "个人博客",
+    "写作",
+    "技术"
+  ],
+  "rss": "https://maplen.top/rss.xml"
+}
